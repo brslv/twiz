@@ -1,0 +1,21 @@
+.cookie-consent {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 20px;
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.cookie-consent span {
+  font-size: 12px;
+  max-width: 28ch;
+  display: inline-block;
+}
+
+.cookie-consent .btn {
+  margin-left: 10px;
+}

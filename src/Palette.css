@@ -1,0 +1,19 @@
+.presets {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.preset {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  margin-right: 10px;
+  transition: all 0.2s;
+}
+
+.preset:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
