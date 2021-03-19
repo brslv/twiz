@@ -6,6 +6,19 @@ import Preview from "./Preview";
 import CookieConsent from "./CookieConsent";
 import "tippy.js/dist/tippy.css";
 
+// Firefox 1.0+
+const isFirefox = typeof InstallTrigger !== "undefined";
+
+// Safari 3.0+ "[object HTMLElementConstructor]"
+const isSafari =
+  /constructor/i.test(window.HTMLElement) ||
+  (function(p) {
+    return p.toString() === "[object SafariRemoteNotification]";
+  })(
+    !window["safari"] ||
+      (typeof window.safari !== "undefined" && window.safari.pushNotification)
+  );
+
 function App() {
   const ref = useRef();
   const [image, setImage] = useState(null);
@@ -30,11 +43,17 @@ function App() {
         </h2>
       </div>
       <div className="container">
-        <Preview ref={ref} image={image} />
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Uploader onUpload={({ image }) => setImage(image)} />
-          {image ? <Exporter node={ref.current} image={image} /> : null}
-        </div>
+        {isSafari || isFirefox ? (
+          <div>Browser not supported, yet. Check back later.</div>
+        ) : (
+          <div>
+            <Preview ref={ref} image={image} />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Uploader onUpload={({ image }) => setImage(image)} />
+              {image ? <Exporter node={ref.current} image={image} /> : null}
+            </div>
+          </div>
+        )}
       </div>
       <div className="footer">
         Built by <a href="https://twitter.com/Brslv">@Brslv</a>.
