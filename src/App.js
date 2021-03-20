@@ -6,8 +6,10 @@ import Preview from "./Preview";
 import CookieConsent from "./CookieConsent";
 import "tippy.js/dist/tippy.css";
 
-// Firefox 1.0+
-const isFirefox = typeof InstallTrigger !== "undefined";
+const ua = window.navigator.userAgent;
+const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+const webkit = !!ua.match(/WebKit/i);
+const isiOSSafari = iOS && webkit && !ua.match(/CriOS/i);
 
 // Safari 3.0+ "[object HTMLElementConstructor]"
 const isSafari =
@@ -43,7 +45,7 @@ function App() {
         </h2>
       </div>
       <div className="container">
-        {isSafari || isFirefox ? (
+        {isSafari || isiOSSafari ? (
           <div>Browser not supported, yet. Check back later.</div>
         ) : (
           <div>

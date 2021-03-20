@@ -19,12 +19,18 @@ const Preview = React.forwardRef(({ image }, ref) => {
   return (
     <div className="preview">
       <Palette onChoose={onPresetChoose} />
-      <div className="preview-box">
-        <div ref={ref} className="background" style={styles.background(preset)}>
-          <div className="image-container">
-            {image ? (
-              <img src={image} alt="User uploaded" className="image" />
-            ) : null}
+      <div className="zoom-container">
+        <div className="preview-box">
+          <div
+            ref={ref}
+            className="background"
+            style={styles.background(preset)}
+          >
+            <div className="image-container">
+              {image ? (
+                <img src={image} alt="User uploaded" className="image" />
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

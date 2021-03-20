@@ -1,14 +1,25 @@
+.zoom-container {
+  width: 300px; /* (actualWidth * 0.25) */
+  height: 157.5px; /* (actualHeight * 0.25 */
+  display: inline-block;
+}
+
 .preview {
   margin-bottom: 20px;
 }
 
 .preview-box {
-  zoom: 0.3;
+  /* zoom: 0.3; */
+  transform: scale(0.25);
   overflow: hidden;
   position: relative;
   border-radius: 15px;
-  width: 100%;
-  max-width: 1200px;
+  /* width: 100%; */
+  /* max-width: 1200px; */
+  margin-left: -450px; /* (actualWidth - scaledWidth) / 2 */
+  margin-right: -450px; /* (actualWidth - scaledWidth) / 2 */
+  margin-top: -236.25px; /* (actualHeight - scaledHeight) / 2 */
+  margin-bottom: -236.25px; /* (actualHeight - scaledHeight) / 2 */
 }
 
 .background {
