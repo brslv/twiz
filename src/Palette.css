@@ -1,7 +1,10 @@
 .presets {
+  margin-top: -10px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 20px;
+  max-width: 300px;
 }
 
 .preset {
@@ -11,6 +14,7 @@
   border-radius: 15px;
   margin-right: 10px;
   transition: all 0.2s;
+  margin-top: 10px;
 }
 
 .preset:hover {

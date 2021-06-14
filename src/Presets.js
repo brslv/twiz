@@ -1,7 +1,5 @@
 import React from "react";
 import { presets } from "./constants";
-import "./Presets.css";
-import Tippy from "@tippyjs/react";
 
 export default function Presets({ onChoose }) {
   const styles = {
